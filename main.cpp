@@ -85,9 +85,6 @@ int main(int argv, char** argc){
           if (c1.getI()!=0){
               cout << "Alice picked matching card ";
               c1.print();
-          } 
-          else{
-              playing = false;
           }
       
      
@@ -96,9 +93,7 @@ int main(int argv, char** argc){
               cout << "Bob picked matching card ";
               c2.print();
           }
-          else{
-              playing = false;
-          }
+    
       
       if (c1.getI() == 0 && c2.getI() == 0){
           playing = false;
