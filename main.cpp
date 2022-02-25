@@ -84,9 +84,8 @@ int main(int argv, char** argc){
       if (turn % 2 == 0){
           c1 = hand1.gameTurnMin(hand2);
           if (c1.getI()!=0){
-              cout << "Alice picked a matching card: ";
+              cout << "Alice picked matching card ";
               c1.print();
-              cout << "." << endl;
           }
           else{
               playing = false;
@@ -95,9 +94,8 @@ int main(int argv, char** argc){
       else{
           c2 = hand2.gameTurnMax(hand1);
           if (c2.getI() != 0){
-              cout << "Bob picked matching card: ";
+              cout << "Bob picked matching card ";
               c2.print();
-              cout << "." << endl;
           }
           else{
               playing = false;

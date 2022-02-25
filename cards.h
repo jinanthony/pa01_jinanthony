@@ -40,16 +40,16 @@ class Card {
         void print(){
             cout << s << " ";
             if (i == 1){
-                cout << "A" << endl;
+                cout << "a" << endl;
             }
             if (i == 11){
-                cout << "J" << endl;
+                cout << "j" << endl;
             }
             if (i == 12){
-                cout << "Q" << endl;
+                cout << "q" << endl;
             }
             if (i == 13){
-                cout << "K" << endl;
+                cout << "k" << endl;
             }
             else{
                 cout << i << endl;
