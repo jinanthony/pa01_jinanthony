@@ -28,7 +28,7 @@ int main(int argv, char** argc){
   //Read each file
   while (getline (cardFile1, line) && (line.length() > 0)){
     s = line.substr(0, 1);
-    v = line.substr(2);
+    v = line.substr(1);
 
     if (v == "a"){
         value = 1;
@@ -53,7 +53,7 @@ int main(int argv, char** argc){
 
   while (getline (cardFile2, line) && (line.length() > 0)){
     s = line.substr(0, 1);
-    v = line.substr(2);
+    v = line.substr(1);
     
     if (v == "a"){
         value = 1;
@@ -84,8 +84,7 @@ int main(int argv, char** argc){
       if (c1.getI()!=0){
           cout << "Alice picked matching card ";
           c1.print();
-      }
-      
+      } 
       c2 = hand2.gameTurnMax(hand1);
       if (c2.getI() != 0){
           cout << "Bob picked matching card ";
