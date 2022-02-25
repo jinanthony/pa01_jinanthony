@@ -28,7 +28,7 @@ int main(int argv, char** argc){
   //Read each file
   while (getline (cardFile1, line) && (line.length() > 0)){
     s = line.substr(0, 1);
-    v = line.substr(1);
+    v = line.substr(2);
 
     if (v == "a"){
         value = 1;
@@ -53,7 +53,7 @@ int main(int argv, char** argc){
 
   while (getline (cardFile2, line) && (line.length() > 0)){
     s = line.substr(0, 1);
-    v = line.substr(1);
+    v = line.substr(2);
     
     if (v == "a"){
         value = 1;
