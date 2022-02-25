@@ -336,7 +336,7 @@ void BST::remove(Card c){
 
 Card BST::gameTurnMin(BST& hand2) {
     Node* n = root;
-    Card c;
+    Card card;
     Card empty;
     if (!n){
         return empty;
@@ -345,22 +345,23 @@ Card BST::gameTurnMin(BST& hand2) {
         n = n->left;
     }
     while (n) {
-        c = n->c;
-        if (hand2.cardExists(c)) {
-            hand2.remove(c);
-            this->remove(c);
-            return c;
+        card = n->c;
+        if (hand2.cardExists(card)) {
+            hand2.remove(card);
+            this->remove(card);
+            return card;
         }
     
-        n = this->successorNode(c);
+        n = this->successorNode(card);
     }
     return empty;
 }
 
 Card BST::gameTurnMax(BST& hand2) {
-        Node* n = root;
-            Card c;
-                Card empty;
+    Node* n = root;
+    Card card;
+    Card empty;
+    
     if (!n){
         return empty;
     }
@@ -368,13 +369,13 @@ Card BST::gameTurnMax(BST& hand2) {
         n = n->right;
     }
     while (n) {
-        c = n->c;
-        if (hand2.cardExists(c)) {
-            hand2.remove(c);
-            this->remove(c);
-            return c;
+        card = n->c;
+        if (hand2.cardExists(card)) {
+            hand2.remove(card);
+            this->remove(card);
+            return card;
         }
-        n = this->predecessorNode(c);
+        n = this->predecessorNode(card);
     }
     return empty;
 }
