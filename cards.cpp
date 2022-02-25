@@ -69,11 +69,38 @@ bool Card::operator==(Card c){
 }
 
 bool Card::operator>=(Card c){
-    //if == is true or > is true then >= must be true
-    if (this>c || this==c){
+	string s1;
+    string s2;
+    if (s == "h") {
+        s1 = "t";
+    }
+    else {
+        s1 = s;
+    }
+
+    if (c.s == "h") {
+        s2 = "z";
+    }
+    else {
+        s2 = c.s;
+    }
+
+    if (s1 > s2) {
         return true;
     }
-    return false;
+    else {
+        if (s1 == s2) {
+            if (i >= c.i) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+        else {
+            return false;
+        } 
+    }
 }
         
 //BST functions
@@ -86,6 +113,10 @@ void BST::clear(Node*n){
         clear(n->right);
         delete n;
     }
+}
+
+BST::~BST(){
+    clear(root);
 }
 
 void BST::insert(Card c){
