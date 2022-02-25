@@ -21,7 +21,7 @@ bool Card::operator>(Card c){
         s1 = "t";
     }
     else{
-        s1 = suit;
+        s1 = s;
     }
     if (c.s == "h"){
         s2 = "t";
@@ -52,7 +52,7 @@ bool Card::operator==(Card c){
         s1 = "t";
     }
     else{
-        s1 = suit;
+        s1 = s;
     }
     if (c.s == "h"){
         s2 = "t";
@@ -68,12 +68,12 @@ bool Card::operator==(Card c){
     return false;
 }
 
-bool Card::operator<(Card c){
-    //if == is true or > is true then < must be false
+bool Card::operator>=(Card c){
+    //if == is true or > is true then >= must be true
     if (this>c || this==c){
-        return false;
+        return true;
     }
-    return true;
+    return false;
 }
         
 //BST functions
@@ -94,7 +94,7 @@ void BST::insert(Card c){
         root = insert;
         return;
     }
-    Node* m = root;
+    Node* n = root;
     while (n) {
         if (n->c >= c){
             if (n->left == nullptr){
@@ -164,6 +164,15 @@ BST::Node* BST::predecessorNode(Card c){
         n = n->left;
         while (n->right){
             n = n->right;
+        }
+        return n;
+    }
+    else{
+        while (n->parent && n->c >= c){
+            n = n->parent;
+        }
+        if (n == root && n->c >= c){
+            return nullptr;
         }
         return n;
     }
@@ -305,8 +314,8 @@ Card BST::gameTurnMin(BST& hand2) {
         n = n->left;
     }
     while (n) {
-        car = n->c;
-        if (hand2.ifCardFound(c)) {
+        c = n->c;
+        if (hand2.cardExists(c)) {
             hand2.remove(c);
             this->remove(c);
             return c;
@@ -329,7 +338,7 @@ Card BST::gameTurnMax(BST& hand2) {
     }
     while (n) {
         c = n->c;
-        if (hand2.ifCardFound(c)) {
+        if (hand2.cardExists(c)) {
             hand2.remove(c);
             this->remove(c);
             return c;

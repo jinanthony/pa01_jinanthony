@@ -1,11 +1,9 @@
 //cards.h
 //Authors: ANTHONY JIN
-//All class declarations go here
+//All class declarations and some functions
 
 #ifndef CARDS_H
 #define CARDS_H
-
-#endif
 
 #include <iostream>
 using namespace std;
@@ -21,7 +19,6 @@ class Card {
     public:
         
         Card(string suit = "none", int value = 0): s(suit), i(value) {
-
         }
     
         string getS() const {
@@ -55,7 +52,7 @@ class Card {
                 cout << "K" << endl;
             }
             else{
-                cout << value << endl;
+                cout << i << endl;
             }
         }
 
@@ -76,7 +73,7 @@ class BST {
         Card predecessor(Card c);
         void printInOrder();
         void printPreOrder();
-        bool cardExists();
+        bool cardExists(Card c);
         Card gameTurnMin(BST& hand);
         Card gameTurnMax(BST& hand);
 

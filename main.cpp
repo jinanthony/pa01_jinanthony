@@ -46,7 +46,7 @@ int main(int argv, char** argc){
         value = stoi(v);
     }
 
-    Card c(s, value){
+    Card c(s, value);
     hand1.insert(c);
   }
   cardFile1.close();
@@ -71,21 +71,21 @@ int main(int argv, char** argc){
         value = stoi(v);
     }
                   
-    Card c(s, value){
+    Card c(s, value);
     hand2.insert(c);
-
   }
   cardFile2.close();
   
   bool playing = true;
   Card c1, c2;
+  int turn = 0;
 
   while (playing){
       if (turn % 2 == 0){
-          c = handA.gameTurnMin(hand2);
-          if (c.getValue()!=0){
+          c1 = hand1.gameTurnMin(hand2);
+          if (c1.getI()!=0){
               cout << "Alice picked a matching card: ";
-              c.print();
+              c1.print();
               cout << "." << endl;
           }
           else{
@@ -93,14 +93,14 @@ int main(int argv, char** argc){
           }
       }   
       else{
-          car = hand2.gameTurnMax(hand1);
-          if (c.getValue() != 0){
+          c2 = hand2.gameTurnMax(hand1);
+          if (c2.getI() != 0){
               cout << "Bob picked matching card: ";
-              c.print();
+              c2.print();
               cout << "." << endl;
           }
           else{
-              play = false;
+              playing = false;
           }
       }
       turn++;
