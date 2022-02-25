@@ -34,35 +34,25 @@ bool Card::operator>(Card c){
     if (s1 > s2){
         return true;
     }
-    else if (s1 == s2 && i > c.i){
-        return true;
-    }
     else{
-        return false;
+        if (s1 == s2){
+            if (i > c.i){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        else{
+            return false;
+        }
     }
 }
 
 bool Card::operator==(Card c){
-    //same first part as above
-
-    string s1;
-    string s2;
-
-    if (s == "h"){
-        s1 = "t";
-    }
-    else{
-        s1 = s;
-    }
-    if (c.s == "h"){
-        s2 = "t";
-    }
-    else{
-        s2 = c.s;
-    }
 
     //card comparison
-    if (s1 == s2 && i == c.i){
+    if (s == c.s && i == c.i){
         return true;
     }
     return false;
@@ -330,7 +320,7 @@ void BST::remove(Card c){
             }
             delete p;
         }
-    return;
+        return;
     }
 }
 
@@ -338,6 +328,9 @@ Card BST::gameTurnMin(BST& hand2) {
     Node* n = root;
     Card card;
     Card empty;
+    
+    cout << "testmin0";
+
     if (!n){
         return empty;
     }
@@ -347,8 +340,14 @@ Card BST::gameTurnMin(BST& hand2) {
     while (n) {
         card = n->c;
         if (hand2.cardExists(card)) {
+
+            cout << "testmin1";
+
             hand2.remove(card);
             this->remove(card);
+            
+            cout << "testmin2";
+
             return card;
         }
     
@@ -361,6 +360,7 @@ Card BST::gameTurnMax(BST& hand2) {
     Node* n = root;
     Card card;
     Card empty;
+    cout << "test0";
     
     if (!n){
         return empty;
@@ -371,8 +371,10 @@ Card BST::gameTurnMax(BST& hand2) {
     while (n) {
         card = n->c;
         if (hand2.cardExists(card)) {
+            cout << "test1";
             hand2.remove(card);
             this->remove(card);
+            cout << "test2";
             return card;
         }
         n = this->predecessorNode(card);

@@ -79,12 +79,16 @@ int main(int argv, char** argc){
   bool playing = true;
   Card c1, c2;
 
+  hand1.printInOrder();
+  hand2.printInOrder();
+
   while (playing){
 
           c1 = hand1.gameTurnMin(hand2);
           if (c1.getI()!=0){
               cout << "Alice picked matching card ";
               c1.print();
+              cout << "hi";
           }
       
      
@@ -92,6 +96,7 @@ int main(int argv, char** argc){
           if (c2.getI() != 0){
               cout << "Bob picked matching card ";
               c2.print();
+              cout << "hi2";
           }
     
       
