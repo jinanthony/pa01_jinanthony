@@ -42,13 +42,13 @@ class Card {
             if (i == 1){
                 cout << "a" << endl;
             }
-            if (i == 11){
+            else if (i == 11){
                 cout << "j" << endl;
             }
-            if (i == 12){
+            else if (i == 12){
                 cout << "q" << endl;
             }
-            if (i == 13){
+            else if (i == 13){
                 cout << "k" << endl;
             }
             else{

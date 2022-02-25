@@ -78,23 +78,36 @@ int main(int argv, char** argc){
   
   bool playing = true;
   Card c1, c2;
+  int turn = 0;
 
   while (playing){
-      c1 = hand1.gameTurnMin(hand2);
-      if (c1.getI()!=0){
-          cout << "Alice picked matching card ";
-          c1.print();
-      } 
-      c2 = hand2.gameTurnMax(hand1);
-      if (c2.getI() != 0){
-          cout << "Bob picked matching card ";
-          c2.print();
+      if (turn % 2 == 0){
+
+          c1 = hand1.gameTurnMin(hand2);
+          if (c1.getI()!=0){
+              cout << "Alice picked matching card ";
+              c1.print();
+          } 
+          else{
+              playing = false;
+          }
+      }
+      else {
+          c2 = hand2.gameTurnMax(hand1);
+          if (c2.getI() != 0){
+              cout << "Bob picked matching card ";
+              c2.print();
+          }
+          else{
+              playing = false;
+          }
       }
       if (c1.getI() == 0 && c2.getI() == 0){
           playing = false;
       }
   }
-
+  
+  cout << endl;
   cout << "Alice's cards: " << endl;
   hand1.printInOrder();
   cout << endl;
